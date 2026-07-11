@@ -165,6 +165,15 @@ export function DashboardPage({ isDarkMode }: DashboardPageProps) {
           </div>
         </div>
 
+        <div className="backend-status-bar">
+          <span className={`status-dot ${backendStatus}`} />
+          <span className="status-label">
+            {backendStatus === 'loading' && 'Connecting to backend...'}
+            {backendStatus === 'online' && 'Backend connected — live data active'}
+            {backendStatus === 'offline' && 'Backend offline — showing demo data'}
+          </span>
+        </div>
+
         <div className="persona-tabs">
           {personas.map((entry, index) => (
             <button
